@@ -1,0 +1,9 @@
+DI:
+    lazy loaded modules:
+        - if 'any' value is set to service providedIn each module will have its instance automatically
+        - if 'root' is used, there will be one instance of the service in the app, unless requested by the module to have its own instance (providers in ngModule)
+        - if null is used di will let you provide the service in module by module bases (the most optimal I guess)
+        - if a module is loaded for the first time, it won't be loaded again even if user navigate to another module and come back, so module properties like services will keep old state
+
+    eager modules(not verified!):
+    - there is always a single instance of a service

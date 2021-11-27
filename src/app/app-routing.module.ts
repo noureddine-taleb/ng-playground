@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { Comp1Component } from './comp1/comp1.component';
 import { Comp2Component } from './comp2/comp2.component';
+import { Mod2Module } from './mod2/mod2.module';
 import { PlatComponent } from './mod2/plat/plat.component';
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   {
     path: "mod2",
     component: PlatComponent,
-    loadChildren: () => import("./mod2/mod2.module").then(m => m.Mod2Module)
+    loadChildren: "./mod2/mod2.module#Mod2Module"
+    // loadChildren: () => import("./mod2/mod2.module").then(m => m.Mod2Module)
   }
 ];
 

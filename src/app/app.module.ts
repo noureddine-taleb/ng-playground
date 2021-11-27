@@ -18,6 +18,7 @@ import { Comp2Component } from './comp2/comp2.component';
     AppRoutingModule
   ],
   providers: [
+    InjectService
   ],
   bootstrap: [AppComponent]
 })

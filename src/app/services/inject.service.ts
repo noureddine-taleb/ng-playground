@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
+import { AppModule } from '../app.module';
+import { Mod2Module } from '../mod2/mod2.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: null
 })
 export class InjectService {
   private c = 0;

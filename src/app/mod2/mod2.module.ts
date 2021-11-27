@@ -4,9 +4,7 @@ import { Comp1Component } from './comp1/comp1.component';
 import { Comp2Component } from './comp2/comp2.component';
 import { PlatComponent } from './plat/plat.component';
 import { RouterModule } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
-
-
+import { InjectService } from '../services/inject.service';
 
 @NgModule({
   declarations: [Comp1Component, Comp2Component, PlatComponent],
@@ -23,6 +21,7 @@ import { BrowserModule } from '@angular/platform-browser';
       },
     ])
   ],
+  providers: [InjectService]
   // bootstrap: [PlatComponent]
 })
 export class Mod2Module { }

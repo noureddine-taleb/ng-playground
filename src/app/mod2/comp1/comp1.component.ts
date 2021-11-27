@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InjectService } from 'src/app/services/inject.service';
 
 @Component({
   selector: 'app-comp1',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Comp1Component implements OnInit {
 
-  constructor() { }
+  constructor(public inj: InjectService) { }
 
   ngOnInit(): void {
   }
