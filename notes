@@ -12,3 +12,6 @@ DI:
     - angular services DI boils down into @Inject by the ng-compiler so if you declare a class as dep for a component like:
         - constructor(public myService: MyService) => constructor(@Inject(MyService) public myService)
         - and in providers array the services will turn into: [MyService] => [{provide: MyService, useClass: MyService}]
+
+    - feature module providers will be available in the module's injector that imports it
+    

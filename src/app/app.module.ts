@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { Comp1Component } from './comp1/comp1.component';
 import { InjectService } from './services/inject.service';
 import { Comp2Component } from './comp2/comp2.component';
+import { FeatureModuleModule } from './feature-module/feature-module.module';
 
 export class MyInjector {
   constructor(public value: string) {
@@ -25,7 +26,8 @@ export const INJ_TOKEN = new InjectionToken<MyInjector>('inj_token', {providedIn
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FeatureModuleModule
   ],
   providers: [
     {provide: InjectService, deps: [HttpClient]}

@@ -8,6 +8,9 @@ import { InjectService } from 'src/app/services/inject.service';
   styleUrls: ['./comp1.component.sass']
 })
 export class Comp1Component implements OnInit {
+  i = 0;
+  start = Date.now();
+  called = false;
 
   constructor(
     public inj: InjectService, 
@@ -19,6 +22,29 @@ export class Comp1Component implements OnInit {
 
   ngOnInit(): void {
     console.log("resolving 'hello' = ", this.injector.get("hello"))
+  }
+
+  inc() {
+    this.inj.inc();
+    if (!this.called) {
+      console.log("calling heavy work")
+      this.called = true;
+      this.start = Date.now();
+      this.count()
+    }
+  }
+
+  count() {
+    // do a piece of the heavy job (*)
+    do {
+      this.i++;
+    } while (this.i % 1e6 != 0);
+
+    if (this.i == 1e9) {
+      alert("Done in " + (Date.now() - this.start) + 'ms');
+    } else {
+      setTimeout(this.count.bind(this)); // schedule the new call (**)
+    }
   }
 
 }
