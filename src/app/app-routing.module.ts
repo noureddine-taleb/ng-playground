@@ -18,8 +18,8 @@ const routes: Routes = [
   {
     path: "mod2",
     component: PlatComponent,
-    loadChildren: "./mod2/mod2.module#Mod2Module"
-    // loadChildren: () => import("./mod2/mod2.module").then(m => m.Mod2Module)
+    loadChildren: () => import("./mod2/mod2.module").then(m => m.Mod2Module)
+    // loadChildren: "./mod2/mod2.module#Mod2Module"
   }
 ];
 

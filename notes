@@ -7,3 +7,8 @@ DI:
 
     eager modules(not verified!):
     - there is always a single instance of a service
+
+    - Injectable has one effect by adding the service to the root injectable, if you want you can remove it and add the service manually to providers array of the appModule and it will work fine
+    - angular services DI boils down into @Inject by the ng-compiler so if you declare a class as dep for a component like:
+        - constructor(public myService: MyService) => constructor(@Inject(MyService) public myService)
+        - and in providers array the services will turn into: [MyService] => [{provide: MyService, useClass: MyService}]

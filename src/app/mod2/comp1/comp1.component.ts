@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { INJ_TOKEN, MyInjector } from 'src/app/app.module';
 import { InjectService } from 'src/app/services/inject.service';
 
 @Component({
@@ -8,7 +9,12 @@ import { InjectService } from 'src/app/services/inject.service';
 })
 export class Comp1Component implements OnInit {
 
-  constructor(public inj: InjectService) { }
+  constructor(
+    public inj: InjectService, 
+    @Inject(INJ_TOKEN) public myToken: MyInjector,
+    )
+  {
+  }
 
   ngOnInit(): void {
   }

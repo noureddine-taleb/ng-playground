@@ -5,6 +5,7 @@ import { Comp2Component } from './comp2/comp2.component';
 import { PlatComponent } from './plat/plat.component';
 import { RouterModule } from '@angular/router';
 import { InjectService } from '../services/inject.service';
+import { INJ_TOKEN, MyInjector } from '../app.module';
 
 @NgModule({
   declarations: [Comp1Component, Comp2Component, PlatComponent],
@@ -21,7 +22,10 @@ import { InjectService } from '../services/inject.service';
       },
     ])
   ],
-  providers: [InjectService]
+  providers: [
+    {provide: INJ_TOKEN, useFactory: () => new MyInjector('mod2 instance')},
+    {provide: 'hello', useValue: "congrats boy !!"}
+  ]
   // bootstrap: [PlatComponent]
 })
 export class Mod2Module { }

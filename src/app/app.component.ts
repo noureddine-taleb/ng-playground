@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { INJ_TOKEN, MyInjector } from './app.module';
 import { InjectService } from './services/inject.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { InjectService } from './services/inject.service';
 export class AppComponent {
   title = 'ng-playground';
 
-  constructor(public inj: InjectService)
+  constructor(
+    @Inject(InjectService) public inj: any, 
+    @Inject(INJ_TOKEN) public myToken: MyInjector,
+  )
   {}
 
   ngOnInit(): void {
